@@ -1,0 +1,85 @@
+body{
+    background-image: url("pozadina.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.header{
+    color: white;
+    background-color: rgba(38, 128, 78, 0.75);
+}
+
+.nav-link:hover{
+color: rgb(11, 218, 81);
+}
+
+
+.naslov{
+    text-align: center;
+}
+.naslov h1{
+    font-size: 3em;
+}
+
+.navigacija ul li a{
+    font-size: 1.5em;
+    color: white;
+}
+
+.forma{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50vw;
+    background-color: rgba(38, 128, 78, 0.75);
+}
+
+form{
+    width: 40vw;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.naslovForma, .naslov h2{
+    color: white;
+}
+
+.prikazPodataka{
+    background-color: rgba(38, 128, 78, 0.75);
+    color: white;
+    width: 70vw;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pocetnaStranaSadrzaj{
+    color: white;
+}
+
+
+
+.sacuvajBtn{
+    border-radius: 20px;
+    border-color: green;
+    background-color: rgba(0, 128, 0, 0.85);
+    font-size: 1.1em;
+    width: 20%;
+
+}
+.resetBtn{
+    border-radius: 20px;
+    border-color: yellow;
+    background-color: rgba(255, 255, 0, 0.69);
+    font-size: 1.1em;
+    width: 15%;
+}
+.obrisiBtn{
+    border-radius: 20px;
+    border-color: red;
+    background-color: rgba(255, 0, 0, 0.81);
+    font-size: 1.1em;
+    width: 15%;
+}
