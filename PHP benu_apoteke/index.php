@@ -1,5 +1,29 @@
 <?php
 require "dbBroker.php";
+require "model/Prijava.php";  
+
+$greska=""; 
+session_start();
+
+if (isset($_SESSION['current_user'])) {
+    header('Location: pocetna.php');
+    exit();
+}
+
+if(isset($_POST['username']) && isset($_POST['password'])){
+    $username=$_POST['username'];
+    $password=$_POST['password'];
+
+    $odg=Prijava::prijaviSe($konekcija,$username,$password);
+    if($odg!=null && $odg->num_rows==1){
+        $red=$odg->fetch_assoc();
+        $_SESSION['current_user']=$red['username'];
+        header('Location: pocetna.php');
+        exit();
+    }else{
+        $greska="Pogrešno korisničko ime ili lozinka!";
+    }
+}
 ?>
 
 <!doctype html>
@@ -37,7 +61,7 @@ require "dbBroker.php";
     </form>
     <br>
     <div style="display: block;">
-        <p style="color: black; background-color: white;"></p>
+        <p style="color: black; background-color: white;"><?=$greska?></p>
     </div>
 </div>
 

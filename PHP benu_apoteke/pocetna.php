@@ -1,5 +1,14 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['current_user'])) {
+    header('Location: index.php');
+    exit();
+}
 require "dbBroker.php";
+require "model/Korisnik.php";
+require "model/farmaceut.php";
+require "model/apoteka.php";
 ?>
 <head>
     <meta charset="UTF-8">
@@ -31,7 +40,7 @@ require "dbBroker.php";
                 <a class="nav-link" href="">Nalog</a>
             </li>
             <li class="nav-item">
-                <p class="">Prijavljen na sistem:></p>
+            <p class="">Prijavljen na sistem: <?=$_SESSION['current_user']?></p> 
             </li>
         </ul>
         <div>
@@ -55,16 +64,31 @@ require "dbBroker.php";
     </div>
 
     <div class="row row-cols-1 row-cols-sm-2 g-3 justify-content-center">
-                <form method="post" action="" class="col">
+        <?php
+        $apoteke=Apoteka::getAll($konekcija);
+        while (($apoteka=$apoteke->fetch_assoc())!=null){?>
+
+
+                <form method="post" action="apoteka.php" class="col">
                     <div class="card" style="background-color: rgba(42,57,89,0.87); width: 35vw; margin-left: auto; margin-right: auto">
                         <div class="card-body">
-                            <!--Ovde cemo kreirati kartice koje ce prikazivati apoteke sa farmaceutima -->
+                            <input type="hidden" name="id_apoteke" value="<?=$apoteka['id']?>" >
+                            <h5 class="card-title"><?=$apoteka['naziv']?></h5>
+                            <?php $farmaceut=Farmaceut::getFarmaceut($apoteka['farmaceut_id'],$konekcija)[0]?>
+                            <p class="card-text">Farmaceut: <?=$farmaceut['ime']." ".$farmaceut['prezime']?></p>                                     
+                            <p class="card-text">Ime: <?=$apoteka['naziv']?></p>
+                            <p class="card-text">Opstina: <?=$apoteka['opstina']?></p>                     
+                            <?php $korisnikK=Korisnik::getKorisnik($apoteka['korisnik_id'],$konekcija)[0]?>
+                            <p class="card-text">Korisnik dodao: <?=$korisnikK['username']?></p>
                             <button type="submit" class="btn btn-primary">Pogledaj</button>
                         </div>
                     </div>
                 </form>
-    </div>
 
+
+        <?php }
+        ?>
+    </div>
 </div>
 
 
