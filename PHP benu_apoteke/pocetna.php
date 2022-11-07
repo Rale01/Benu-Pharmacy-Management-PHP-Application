@@ -31,20 +31,20 @@ require "model/apoteka.php";
                 <a class="nav-link" aria-current="page" href="pocetna.php">Početna</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Farmaceuti</a>
+                <a class="nav-link" href="farmaceut.php">Farmaceuti</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Apoteke</a>
+                <a class="nav-link" href="apoteka.php">Apoteke</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Nalog</a>
+                <a class="nav-link" href="nalog.php">Nalog</a>
             </li>
             <li class="nav-item">
             <p class="">Prijavljen na sistem: <?=$_SESSION['current_user']?></p> 
             </li>
         </ul>
         <div>
-            <a class="btn btn-danger" href="">Odjavi se</a>
+            <a class="btn btn-danger" href="odjava.php">Odjavi se</a>
         </div>
     </div>
 </div>

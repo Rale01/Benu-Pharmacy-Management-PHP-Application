@@ -55,7 +55,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
         </div>
         <div class="d-grid gap-2 d-md-block">
             <button type="submit" id="login" class="btn btn-success">Prijavi se</button>
-            <button type="button" id="register" onclick="" class="btn btn-primary">Registruj se</button>
+            <button type="button" id="register" onclick="document.location.href='registracija.php'" class="btn btn-primary">Registruj se</button>
         </div>
 
     </form>
