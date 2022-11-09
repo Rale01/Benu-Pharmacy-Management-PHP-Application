@@ -15,13 +15,12 @@ class Farmaceut
         $this->id = $id;
         $this->ime = $ime;
         $this->prezime = $prezime;
-        $this-$strucnaSprema = $strucnaSprema;
+        $this->strucnaSprema = $strucnaSprema;
         
     }
 
-
     public function add(mysqli $conn){
-        $upit = "INSERT INTO farmaceuti (ime,prezime, strucnaSprema) 
+        $upit = "INSERT INTO farmaceuti (ime,prezime,strucnaSprema) 
                  VALUES ('$this->ime','$this->prezime','$this->strucnaSprema');";
         return $conn->query($upit);
     }
